@@ -9,6 +9,7 @@ type EnvType = {
   DB_USERNAME: string;
   DB_PASSWORD: string;
   DB_DATABASE: string;
+  JWT_SECRET: string;
   AWS_BUCKET: string;
   AWS_ACCESS_KEY: string;
   AWS_SECRET_KEY: string;
@@ -25,6 +26,7 @@ const envSchema = joi
     DB_USERNAME: joi.string().required(),
     DB_PASSWORD: joi.string().required(),
     DB_DATABASE: joi.string().required(),
+    JWT_SECRET: joi.string().required(),
     AWS_BUCKET: joi.string(),
     AWS_ACCESS_KEY: joi.string(),
     AWS_SECRET_KEY: joi.string(),
@@ -58,6 +60,7 @@ export const envs = {
   DB_USERNAME: envsVars.DB_USERNAME,
   DB_PASSWORD: envsVars.DB_PASSWORD,
   DB_DATABASE: envsVars.DB_DATABASE,
+  JWT_SECRET: envsVars.JWT_SECRET,
   AWS_BUCKET: envsVars.AWS_BUCKET,
   AWS_ACCESS_KEY: envsVars.AWS_ACCESS_KEY,
   AWS_SECRET_KEY: envsVars.AWS_SECRET_KEY,

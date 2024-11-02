@@ -16,8 +16,8 @@ async function bootstrap() {
 
   if (envs.NODE_ENV !== 'production') {
     const config = new DocumentBuilder()
-      .setTitle('MOTOBACK API')
-      .setDescription('MOTOBACK API description')
+      .setTitle('QUICKACC API')
+      .setDescription('QUICKACC API description')
       .setVersion('1.0')
       .addBearerAuth()
       .build();

@@ -5,6 +5,7 @@ import { InfrastructureModule } from '@app/infrastructure/infrastructure.module'
 import { SERVICES } from './services';
 import { PROFILES } from './profiles';
 import { JwtModule } from '@nestjs/jwt';
+import { ConfigModule, ConfigService } from '@nestjs/config';
 
 @Module({
   imports: [
@@ -12,12 +13,18 @@ import { JwtModule } from '@nestjs/jwt';
     AutomapperModule.forRoot({
       strategyInitializer: classes(),
     }),
-    JwtModule.register({
-      secret: 'test-key',
-      global: true,
-      signOptions: {
-        expiresIn: '30m',
-      },
+    JwtModule.registerAsync({
+      imports: [ConfigModule],
+      useFactory: async (configService: ConfigService) => ({
+        secret: configService.get<string>('JWT_SECRET'),
+        signOptions: {
+          expiresIn:
+            configService.get<string>('NODE_ENV') === 'production'
+              ? '1h'
+              : '7d',
+        },
+      }),
+      inject: [ConfigService],
     }),
   ],
   providers: [...SERVICES, ...PROFILES],

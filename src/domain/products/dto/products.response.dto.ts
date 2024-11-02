@@ -1,3 +1,4 @@
+import { SubProducts } from '@app/domain/subproducts/subproducts.entity';
 import { AutoMap } from '@automapper/classes';
 
 export class ProductsResponseDto {
@@ -14,37 +15,8 @@ export class ProductsResponseDto {
   name: string;
 
   /**
-   * Products Description
+   * Products SubProducts
    */
-
-  @AutoMap()
-  description: string;
-
-  /**
-   * Products  Kg
-   */
-
-  @AutoMap()
-  Kg: number;
-
-  /**
-   * Products Price
-   */
-
-  @AutoMap()
-  price: number;
-
-  /**
-   * Products Details
-   */
-
-  @AutoMap()
-  details: string;
-
-  /**
-   * Products Image
-   */
-
-  @AutoMap()
-  image: string;
+  @AutoMap(() => SubProducts)
+  subProducts: SubProducts[];
 }

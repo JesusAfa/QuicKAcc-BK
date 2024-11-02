@@ -6,7 +6,6 @@ import { ProductsResponseDto } from '@app/domain/products/dto/products.response.
 import { ProductsUpdateDto } from '@app/domain/products/dto/products-update.dto';
 import { ProductRepository } from '@app/infrastructure/persistence/repositories/products/products.repository';
 import { Products } from '@app/domain/products/products.entity';
-import { extFile } from '@app/common/utils';
 
 /**
  * Products services
@@ -33,7 +32,6 @@ export class ProductsServices {
 
     const product =
       await this._productsRepository.createProduct(ProductsPayload);
-    product.image = `${new Date().getTime()}.${extFile(createProductsDto.image)}`;
     const response = this._mapper.map(product, Products, ProductsResponseDto);
 
     return response;
@@ -59,9 +57,10 @@ export class ProductsServices {
    * @param id
    * @returns
    */
-  async findOne(id: string): Promise<ProductsResponseDto> {
+  async findOne(id: number): Promise<ProductsResponseDto> {
     const products = await this._productsRepository.findProductById({
       where: { idProducts: id },
+      relations: ['subProducts'],
     });
 
     const response = this._mapper.map(products, Products, ProductsResponseDto);

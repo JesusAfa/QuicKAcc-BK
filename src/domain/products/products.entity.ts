@@ -4,9 +4,11 @@ import {
   CreateDateColumn,
   DeleteDateColumn,
   Entity,
+  OneToMany,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
+import { SubProducts } from '../subproducts/subproducts.entity';
 
 @Entity({
   name: 'products',
@@ -17,7 +19,7 @@ export class Products {
    */
   @PrimaryGeneratedColumn()
   @AutoMap()
-  idProducts: string;
+  idProducts: number;
 
   /**
    * Products name
@@ -25,45 +27,6 @@ export class Products {
   @Column()
   @AutoMap()
   name: string;
-
-  /**
-   * Products Description
-   */
-
-  @Column()
-  @AutoMap()
-  description: string;
-
-  /**
-   * Products  Kg
-   */
-
-  @Column()
-  @AutoMap()
-  Kg: number;
-
-  /**
-   * Products Price
-   */
-
-  @Column()
-  @AutoMap()
-  price: number;
-
-  /**
-   * Products Details
-   */
-
-  @Column()
-  @AutoMap()
-  details: string;
-
-  /**
-   * Products Image
-   */
-  @Column()
-  @AutoMap()
-  image: string;
 
   /**
    * Create todo date
@@ -85,4 +48,11 @@ export class Products {
   @DeleteDateColumn()
   @AutoMap()
   deleted?: Date;
+
+  /**
+   * Products SubProducts
+   */
+  @OneToMany(() => SubProducts, (subProducts) => subProducts.products)
+  @AutoMap(() => SubProducts)
+  subProducts: SubProducts[];
 }
