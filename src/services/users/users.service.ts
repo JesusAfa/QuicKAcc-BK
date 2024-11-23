@@ -1,6 +1,6 @@
 import { BadRequestException, Inject, Injectable } from '@nestjs/common';
 import { Mapper } from '@automapper/core';
-import * as bcrypt from 'bcrypt';
+import * as bcrypt from 'bcryptjs';
 import { Request } from 'express';
 import { UserRequestDto } from '@app/domain/user/dto/user-request.dto';
 import { InjectMapper } from '@automapper/nestjs';
