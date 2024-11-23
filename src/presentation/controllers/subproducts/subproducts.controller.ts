@@ -1,3 +1,4 @@
+import { Auth } from '@app/common/decorators/auth.decorator';
 import { SubProductsRequestDto } from '@app/domain/subproducts/dto/subproducts-request.dto';
 import { SubProductsUpdateDto } from '@app/domain/subproducts/dto/subproducts-update.dto';
 import { SubProductsServices } from '@app/services/subproducts/subproducts.service';
@@ -10,11 +11,13 @@ import {
   Delete,
   Put,
 } from '@nestjs/common';
-import { ApiTags } from '@nestjs/swagger';
+import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
 
 /**
  * SubProducts controller
  */
+@ApiBearerAuth('access-token')
+@Auth()
 @Controller('SubProducts')
 @ApiTags('SubProducts')
 export class SubProductsController {

@@ -24,6 +24,7 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
               : '7d',
         },
       }),
+      global: true,
       inject: [ConfigService],
     }),
   ],

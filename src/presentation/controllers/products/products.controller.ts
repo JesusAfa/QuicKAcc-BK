@@ -1,3 +1,4 @@
+import { Auth } from '@app/common/decorators/auth.decorator';
 import { ProductsRequestDto } from '@app/domain/products/dto/products-request.dto';
 import { ProductsUpdateDto } from '@app/domain/products/dto/products-update.dto';
 import { ProductsServices } from '@app/services/products/products.service';
@@ -11,11 +12,13 @@ import {
   Put,
   ParseIntPipe,
 } from '@nestjs/common';
-import { ApiTags } from '@nestjs/swagger';
+import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
 
 /**
  * Todo controller
  */
+@ApiBearerAuth('access-token')
+@Auth()
 @Controller('Products')
 @ApiTags('Products')
 export class ProductsController {

@@ -6,6 +6,7 @@ import { GenericRepository } from '@app/common/classes/genericRepository';
 import { Todo } from '@app/domain/todo/todo.entity';
 import { Products } from '@app/domain/products/products.entity';
 import { SubProducts } from '@app/domain/subproducts/subproducts.entity';
+import { User } from '@app/domain/user/user.entity';
 
 /**
  * App context
@@ -26,6 +27,10 @@ export class AppContext {
    *  SubProduct repository
    */
   subProducts: AbstractRepository<SubProducts>;
+  /**
+   *  User repository
+   */
+  user: AbstractRepository<User>;
 
   constructor(
     private dataSource: DataSource,
@@ -34,5 +39,6 @@ export class AppContext {
     this.todo = new GenericRepository(Todo, dataSource, request);
     this.products = new GenericRepository(Products, dataSource, request);
     this.subProducts = new GenericRepository(SubProducts, dataSource, request);
+    this.user = new GenericRepository(User, dataSource, request);
   }
 }
