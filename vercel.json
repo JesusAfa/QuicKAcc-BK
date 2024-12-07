@@ -1,13 +1,13 @@
 {
   "version": 2,
   "env": {
-    "NODE_ENV": "@NODE_ENV",
-    "DB_HOST": "@DB_HOST",
-    "DB_PORT": "@DB_PORT",
-    "DB_USERNAME": "@DB_USERNAME",
-    "DB_PASSWORD": "@DB_PASSWORD",
-    "JWT_SECRET": "@JWT_SECRET",
-    "DB_DATABASE": "@DB_DATABASE"
+    "NODE_ENV": "@NODE_ENV_VERCEL",
+    "DB_HOST": "@DB_HOST_VERCEL",
+    "DB_PORT": "@DB_PORT_VERCEL",
+    "DB_USERNAME": "@DB_USERNAME_VERCEL",
+    "DB_PASSWORD": "@DB_PASSWORD_VERCEL",
+    "JWT_SECRET": "@JWT_SECRET_VERCEL",
+    "DB_DATABASE": "@DB_DATABASE_VERCEL"
   },
   "builds": [
     {
