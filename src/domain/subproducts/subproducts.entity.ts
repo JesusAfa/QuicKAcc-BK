@@ -12,7 +12,7 @@ import {
 import { Products } from '../products/products.entity';
 
 @Entity({
-  name: 'subProducts',
+  name: 'SubProducts',
 })
 export class SubProducts {
   /**

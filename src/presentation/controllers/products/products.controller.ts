@@ -17,8 +17,7 @@ import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
 /**
  * Todo controller
  */
-@ApiBearerAuth('access-token')
-@Auth()
+
 @Controller('Products')
 @ApiTags('Products')
 export class ProductsController {
@@ -29,6 +28,8 @@ export class ProductsController {
    * @param createproductDto
    * @returns
    */
+  @ApiBearerAuth('access-token')
+  @Auth()
   @Post()
   create(@Body() createproductDto: ProductsRequestDto) {
     return this.productServices.create(createproductDto);
@@ -38,6 +39,7 @@ export class ProductsController {
    * Get all products
    * @returns
    */
+
   @Get()
   findAll() {
     return this.productServices.findAll();
@@ -59,6 +61,8 @@ export class ProductsController {
    * @param updateTodoDto
    * @returns
    */
+  @ApiBearerAuth('access-token')
+  @Auth()
   @Put(':id')
   update(@Param('id') id: string, @Body() updateProductDto: ProductsUpdateDto) {
     return this.productServices.update(id, updateProductDto);
@@ -69,6 +73,7 @@ export class ProductsController {
    * @param id
    * @returns
    */
+  @Auth()
   @Delete(':id')
   remove(@Param('id') idProducts: string) {
     return this.productServices.remove(idProducts);

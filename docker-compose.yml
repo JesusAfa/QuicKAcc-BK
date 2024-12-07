@@ -7,9 +7,10 @@ services:
     ports:
       - '3001:3001'
     environment:
-      NODE_ENV: production
-      DB_HOST: 54.173.16.113
-      DB_USERNAME: postgres
-      DB_PASSWORD: 7pOVntidT6Ut9k7
+      NODE_ENV: development
+      DB_HOST: aws-0-us-west-1.pooler.supabase.com
+      DB_USERNAME: postgres.pkjygtwacfkiyjhaxokw
+      DB_PASSWORD: 3UrWct7AkLin06i3
+      DB_PORT: 6543
       JWT_SECRET: xloju167kmd
-      DB_DATABASE: quicckAcc-develop
+      DB_DATABASE: quiccka-devops

@@ -11,7 +11,7 @@ import {
 import { SubProducts } from '../subproducts/subproducts.entity';
 
 @Entity({
-  name: 'products',
+  name: 'Products',
 })
 export class Products {
   /**

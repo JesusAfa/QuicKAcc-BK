@@ -9,7 +9,7 @@ import {
 } from 'typeorm';
 
 @Entity({
-  name: 'todos',
+  name: 'Todos',
 })
 export class Todo {
   /**
